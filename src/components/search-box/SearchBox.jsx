@@ -2,6 +2,17 @@ import React, { Component } from "react";
 
 export default class SearchBox extends Component {
   render() {
-    return <div>SearchBox</div>;
+    const { onChangeHandler, placeholder, className } = this.props;
+
+    return (
+      <div>
+        <input
+          className={className}
+          type="search"
+          placeholder={placeholder}
+          onChange={onChangeHandler}
+        />
+      </div>
+    );
   }
 }

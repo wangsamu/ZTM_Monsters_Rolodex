@@ -5,11 +5,11 @@ export default class CardList extends Component {
     super(props);
   }
   render() {
-    const { filteredArray } = this.props;
+    const { monstersArray } = this.props;
 
     return (
       <div>
-        {filteredArray.map((monster) => {
+        {monstersArray.map((monster) => {
           return (
             <div key={monster.id}>
               <h1>{monster.name}</h1>
