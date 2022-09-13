@@ -9,7 +9,7 @@ function CardList(props) {
     <div className="card-list">
       {monstersArray.map((monster) => {
         const { id, name, email } = monster;
-        return <Card id={id} name={name} email={email} />;
+        return <Card key={id} id={id} name={name} email={email} />;
       })}
     </div>
   );
