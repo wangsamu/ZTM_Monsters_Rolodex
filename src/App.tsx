@@ -1,15 +1,16 @@
 import './App.css';
-import { Component, useState, useEffect } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import CardList from './components/card-list/CardList';
 import { SearchBox } from './components/search-box/SearchBox';
-import { Interface } from 'readline';
 
-Interface Monster {
-
+export interface Monster {
+  id: number;
+  name: string;
+  email: string;
 }
 
-function App() {
-  const [monsters, setMonsters] = useState([]);
+const App: React.FC = () => {
+  const [monsters, setMonsters] = useState<Monster[]>([]);
   const [searchField, setSearchField] = useState('');
   const [uselessText, setUselessText] = useState('');
   const [filteredArray, setFilteredArray] = useState(monsters);
@@ -29,13 +30,13 @@ function App() {
     setFilteredArray(filteredSelection);
   }, [monsters, searchField]);
 
-  const onSearchChange = (e) => {
-    const inputText = e.target.value.toLowerCase();
+  const onSearchChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const inputText = event.target.value.toLowerCase();
     setSearchField(inputText);
   };
 
-  const onUselessTextChange = (e) => {
-    const inputText = e.target.value.toLowerCase();
+  const onUselessTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const inputText = event.target.value.toLowerCase();
     setUselessText(inputText);
   };
 
@@ -55,6 +56,6 @@ function App() {
       <CardList monstersArray={filteredArray} />
     </div>
   );
-}
+};
 
 export default App;
