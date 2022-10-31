@@ -1,10 +1,16 @@
-import React, { Component } from "react";
-import "./card.styles.css";
+import React, { Component } from 'react';
+import './card.styles.css';
 
-function Card(props) {
+interface CardProps {
+  id: number;
+  name: string;
+  email: string;
+}
+
+export const Card: React.FC<CardProps> = (props) => {
   const { id, name, email } = props;
   return (
-    <div className="card-container" key={id}>
+    <div className='card-container' key={id}>
       <img
         src={`https://robohash.org/${id}?set=set2&size=180x180`}
         alt={`monster ${name}`}
@@ -13,6 +19,6 @@ function Card(props) {
       <p>{email}</p>
     </div>
   );
-}
+};
 
 export default Card;

@@ -6,6 +6,7 @@ interface SearchBoxProps {
   placeholder: string;
   className: string;
 }
+
 export const SearchBox: React.FC<SearchBoxProps> = (props) => {
   const { onChangeHandler, placeholder, className } = props;
 
